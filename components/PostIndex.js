@@ -1,8 +1,8 @@
 import { Component } from "react";
-import { Post } from "./[pid]";
-import styleModule from "../../styles/Post.module.css";
+import { Post } from "./Post";
+import styleModule from "../styles/Post.module.css";
 
-class PostIndex extends Component {
+export class PostIndex extends Component {
 
     state = { posts: [] }
 
@@ -29,11 +29,11 @@ class PostIndex extends Component {
     }
 
     render() {
-        if (this.state.props)
+        if (this.state.posts)
             return (
                 <div>
                     <h2>Posts</h2>
-                    <div style={styleModule.PostHolder}>
+                    <div className={styleModule.PostHolder}>
                         {[...new Set(this.state.posts)].map((post, index) => <Post key={index} post={post}></Post>)}
                     </div>
                 </div>
@@ -41,8 +41,4 @@ class PostIndex extends Component {
 
         return (<div></div>)
     }
-}
-
-export default function Poster() {
-    return <PostIndex></PostIndex>
 }
