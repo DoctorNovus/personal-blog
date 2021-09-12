@@ -1,4 +1,4 @@
-import serverPath from "../../utils/serverPath";
+import serverPath from "../../../utils/serverPath";
 import fs from "fs";
 
 export default function handler(req, res) {

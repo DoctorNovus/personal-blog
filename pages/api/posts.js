@@ -1,5 +1,5 @@
 import fs from "fs";
-import serverPath from "../utils/serverPath";
+import serverPath from "../../utils/serverPath";
 
 export default function handler(req, res) {
     let files = fs.readdirSync(serverPath("/files"));
