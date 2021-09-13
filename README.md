@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Personal Blog
 
-## Getting Started
+Welcome to my personal blog site! This is one of many projects listed here on my GitHub profile, so feel free to check the others.
 
-First, run the development server:
+## How to Follow
 
-```bash
-npm run dev
-# or
-yarn dev
+The folder structure is as such:
+
+### files - Where the post configs go
+
+- hello.json - Default Post One
+- random-post-one.json - Default Post Two
+
+### public
+
+- favicon.ico - Default App Icon
+
+### src
+
+- components - Where app components are held
+- hooks - where app hooks are held
+- pages - where each route is held as well as the API, ie .. `/post/hello`;
+- styles - where all the css is held
+- utils - where the util functions for the server are held
+
+### Other files
+
+- eslintrc.json
+- .gitignore - Ignores for GitHub Push
+- jsconfig.json - Where all the configs for imports are
+- next.config.js - setup for the server config
+- package-lock.json - default package-lock
+- package.json - default package.json with scripts
+- README.md - This file
+
+## Example post config setup
+
+```json
+{
+  "name": "Test Name",
+  "hint": "Info about Test Name",
+  "date": "09-12-2021",
+  "body": "Test Details"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Key  | Value                                                                 |
+| ---- | --------------------------------------------------------------------- |
+| name | The name that will be shown at the / route                            |
+| hint | What shows under the name that gives a hint at what the post is about |
+| date | The date of the post in MM-DD-YYYY format                             |
+| body | The page of information that goes into detail                         |
