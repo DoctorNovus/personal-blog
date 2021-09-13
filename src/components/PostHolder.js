@@ -4,12 +4,12 @@ export default function PostHolder({ pid }) {
     const { name, date, body } = usePost(pid);
 
     if (!pid)
-        return <div></div>;
+        return <></>;
 
     return (
-        <div>
-            <div>{name} - {date}</div>
-            <div>{body}</div>
-        </div>
+        <>
+            <>{name} - {date}</>
+            <>{body}</>
+        </>
     );
 }
