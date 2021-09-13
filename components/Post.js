@@ -1,20 +1,18 @@
-import { Component } from "react";
+import { } from "react";
+import Link from "next/link";
 
-export class Post extends Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+export default function Post() {
+    const { post } = this.props;
 
-    render() {
-        console.log(this.props.post);
+    if (!post) return <div>No data found</div>;
 
-        if (this.props.post)
-            return (<div>
-                <a href={`/posts/${this.props.post.pid}`}><h3>{this.props.post.name}</h3></a>
-                <p>{this.props.post.hint}</p>
-            </div>);
-
-        return (<div>No data found</div>);
-    }
-}
+    return (
+        <div>
+            <Link href={`/posts/${post.pid}`}>
+                <a>
+                    <h3>{post.name}</h3>
+                </a>
+            </Link>
+        </div>
+    );
+};

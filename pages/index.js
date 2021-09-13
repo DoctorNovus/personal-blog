@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { PostIndex } from "../components/PostIndex";
+import PostIndex from "../components/PostIndex";
 
 export default function Home() {
   return (

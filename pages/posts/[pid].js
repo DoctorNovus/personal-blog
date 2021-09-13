@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { PostHolder } from "../../components/PostHolder";
+import PostHolder from "../../components/PostHolder";
 
 export default function PID() {
     let router = useRouter();

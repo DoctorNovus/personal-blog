@@ -1,44 +1,28 @@
-import { Component } from "react";
-import { Post } from "./Post";
+import { useEffect, useState } from "react";
+import Post from "./Post";
 import styleModule from "../styles/Post.module.css";
 
-export class PostIndex extends Component {
-
-    state = { posts: [] }
-
-    addPost = (post) => this.setState(({ posts }) => { posts.push(post) });
-    setPosts = (posts) => this.setState(() => {
-        return posts.filter((c, index) => {
-            return posts.indexOf(c) === index;
-        });
-    });
-
-    componentDidMount() {
+export default function PostIndex() {
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
         fetch(`/api/posts`)
             .then(res => res.json())
             .then((data) => {
-                data.files.forEach(post => {
-                    this.addPost(post);
-                });
-
-                this.setPosts(this.state.posts);
+                setPosts(data.files);
             })
             .catch((err) => {
                 console.log(err);
             });
-    }
+    });
 
-    render() {
-        if (this.state.posts)
-            return (
-                <div>
-                    <h2>Posts</h2>
-                    <div className={styleModule.PostHolder}>
-                        {[...new Set(this.state.posts)].map((post, index) => <Post key={index} post={post}></Post>)}
-                    </div>
-                </div>
-            )
+    if (!posts) return <div>No Posts</div>;
 
-        return (<div></div>)
-    }
-}
+    return (
+        <div>
+            <h2>Posts</h2>
+            <div className={styleModule.PostHolder}>
+                {posts.map((post, index) => <Post key={index} post={post}></Post>)}
+            </div>
+        </div>
+    )
+};

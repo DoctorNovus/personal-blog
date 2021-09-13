@@ -1,35 +1,22 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 
-export class PostHolder extends Component {
+export default function PostHolder() {
+    const [post, setPost] = useState({ name: "", date: "", body: "" });
 
-    state = {
-        name: "",
-        date: "",
-        body: ""
-    };
+    const { pid } = this.props;
 
-    componentDidMount() {
-        fetch(`/api/posts/${this.props.pid}`)
+    useEffect(() => {
+        fetch(`/api/posts/${pid}`)
             .then(res => res.json())
             .then(post => {
-                console.log(post);
-            })
-    }
+                setPost({ name: post.name, date: post.date, body: post.body });
+            });
+    });
 
-    render() {
-        if (this.props.pid && !this.loaded) {
-            fetch(`/api/posts/${this.props.pid}`)
-                .then(res => res.json())
-                .then(post => {
-                    this.setState(({ name, date, body }) => ({ name: post.name, date: post.date, body: post.body }));
-                });
-
-            this.loaded = true;
-        }
-
-        return (<div>
-            <div>{this.state.name} - {this.state.date}</div>
-            <div>{this.state.body}</div>
-        </div>)
-    }
-}
+    return (
+        <div>
+            <div>{post.name} - {post.date}</div>
+            <div>{post.body}</div>
+        </div>
+    );
+};
