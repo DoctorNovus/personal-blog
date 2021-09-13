@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react";
+import usePost from "@hooks/post";
 
 export default function PostHolder({ pid }) {
-    const [name, setName] = useState("");
-    const [date, setDate] = useState("");
-    const [body, setBody] = useState("");
-
-    useEffect(() => {
-        if (!pid)
-            return;
-
-        fetch(`/api/posts/${pid}`)
-            .then(res => res.json())
-            .then(post => {
-                setName(post.name);
-                setDate(post.date);
-                setBody(post.body);
-            });
-    }, [pid]);
+    const { name, date, body } = usePost(pid);
 
     if (!pid)
         return <div></div>;

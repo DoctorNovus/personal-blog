@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
 import Post from "@components/Post";
 import styleModule from "@styles/Post.module.css";
+import usePosts from "@hooks/posts";
 
 export default function PostIndex() {
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        fetch(`/api/posts`)
-            .then(res => res.json())
-            .then((data) => {
-                setPosts(data.files);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+    const posts = usePosts();
 
     if (!posts) return <div>No Posts</div>;
 
