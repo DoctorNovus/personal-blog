@@ -1,22 +1,30 @@
 import { useEffect, useState } from "react";
 
-export default function PostHolder() {
-    const [post, setPost] = useState({ name: "", date: "", body: "" });
-
-    const { pid } = this.props;
+export default function PostHolder({ pid }) {
+    const [name, setName] = useState("");
+    const [date, setDate] = useState("");
+    const [body, setBody] = useState("");
 
     useEffect(() => {
+        if (!pid)
+            return;
+
         fetch(`/api/posts/${pid}`)
             .then(res => res.json())
             .then(post => {
-                setPost({ name: post.name, date: post.date, body: post.body });
+                setName(post.name);
+                setDate(post.date);
+                setBody(post.body);
             });
-    });
+    }, [pid]);
+
+    if (!pid)
+        return <div></div>;
 
     return (
         <div>
-            <div>{post.name} - {post.date}</div>
-            <div>{post.body}</div>
+            <div>{name} - {date}</div>
+            <div>{body}</div>
         </div>
     );
-};
+}

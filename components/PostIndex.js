@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Post from "./Post";
-import styleModule from "../styles/Post.module.css";
+import Post from "@components/Post";
+import styleModule from "@styles/Post.module.css";
 
 export default function PostIndex() {
     const [posts, setPosts] = useState([]);
+
     useEffect(() => {
         fetch(`/api/posts`)
             .then(res => res.json())
@@ -13,7 +14,7 @@ export default function PostIndex() {
             .catch((err) => {
                 console.log(err);
             });
-    });
+    }, []);
 
     if (!posts) return <div>No Posts</div>;
 
@@ -25,4 +26,4 @@ export default function PostIndex() {
             </div>
         </div>
     )
-};
+}

@@ -1,9 +1,6 @@
-import { } from "react";
 import Link from "next/link";
 
-export default function Post() {
-    const { post } = this.props;
-
+export default function Post({ post }) {
     if (!post) return <div>No data found</div>;
 
     return (
@@ -15,4 +12,4 @@ export default function Post() {
             </Link>
         </div>
     );
-};
+}
