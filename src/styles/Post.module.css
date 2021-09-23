@@ -1,7 +1,6 @@
 .PostHolder {
   display: grid;
   grid-template-columns: repeat(3, 30%);
-  grid-template-rows: repeat(30%);
   padding-top: 5%;
   padding-left: 5%;
   padding-right: 5%;
@@ -42,11 +41,14 @@
   padding: 0;
   margin-left: 0.75em;
   margin-right: 0.75em;
-  font-size: 1.5vmax;
+  font-size: 3.65vw;
   position: absolute;
   top: 0%;
-  color: cadetblue;
+  color: rgba(100, 100, 100);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
   white-space: normal;
+  overflow: hidden;
 }
 
 .header {
@@ -55,23 +57,34 @@
   box-shadow: 1px 1px 0px;
   margin: 0;
   padding: 0.5em;
-  background-color: cadetblue;
+  background-color: rgb(255, 255, 255);
 }
 
 .divMainHolder {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 10% 90%;
 }
 
 .catHolder {
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: rgb(235, 235, 235);
   height: 100%;
-  color: white;
+  text-align: center;
+  padding: 0.5em;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px;
 }
 
 .catHolder > [active="true"] {
-  color: gold;
+  color: darkorchid;
+}
+
+.img {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
 }
