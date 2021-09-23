@@ -2,5 +2,7 @@
     "name": "Hello World",
     "hint": "Info about Hello World",
     "date": "09-08-2021",
-    "body": "Welcome to the hello blog post! This is our very first post! Hello World :D!"
+    "body": "Welcome to the hello blog post! This is our very first post! Hello World :D!",
+    "src": "/space.png",
+    "category": "random"
 }
